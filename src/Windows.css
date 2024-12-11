@@ -1,0 +1,164 @@
+.window-header {
+    height: 30px;
+    margin: 5px;
+    background-color: #7f797f;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-header-icon {
+    height: 43px;
+    position: relative;
+    left: -8px;
+    bottom: -2px;
+}
+
+.window-header-name {
+    font-family: 'MS Sans Serif Bold';
+    font-size: 18px;
+    color: #b6b0b6;
+    position: relative;
+    left: -15px;
+    bottom: 12px;
+}
+
+
+.control-icons {
+    display: flex;
+}
+
+.control-button {
+    height: 20px;
+    width: 20px;
+    margin-right: 3px;
+    background-color: #bbb9be;
+
+    border: outset;
+}
+
+.control-icon {
+    height: 60%;
+}
+
+.a-window {
+    height: 500px;
+    width: 700px;
+    background-color: #c1b8bf;
+  
+    position: fixed;
+    left: 25%;
+    bottom: 25%;
+
+    border: outset;
+    border-width: 4px;
+}
+
+.c-window {
+    height: 300px;
+    width: 400px;
+    background-color: #c1b8bf;
+  
+    position: fixed;
+    left: 38%;
+    bottom: 40%;
+
+    border: outset;
+    border-width: 4px;
+}
+
+.p-window {
+    height: 400px;
+    width: 600px;
+    background-color: #c1b8bf;
+  
+    position: fixed;
+    left: 30%;
+    bottom: 30%;
+
+    border: outset;
+    border-width: 4px;
+}
+
+.r-window {
+    height: 700px;
+    width: 500px;
+    background-color: #c1b8bf;
+  
+    position: fixed;
+    left: 34%;
+    bottom: 7%;
+
+    border: outset;
+    border-width: 4px;
+}
+
+.h-window {
+    height: 600px;
+    width: 800px;
+    background-color: #c1b8bf;
+  
+    position: fixed;
+    left: 25%;
+    bottom: 25%;
+
+    border: outset;
+    border-width: 4px;
+}
+
+.s-window {
+    height: 500px;
+    width: 700px;
+    background-color: #c1b8bf;
+  
+    position: fixed;
+    left: 25%;
+    bottom: 25%;
+
+    border: outset;
+    border-width: 4px;
+}
+
+.taskbar {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.taskbar-member {
+    background-color: #bcbcbc;
+    border: outset;
+    border-width: 3px;
+    border-top-color: #f3f3f3;
+    border-left-color: #f3f3f3;
+    border-bottom-color: #282828;
+    border-right-color: #282828;
+    margin-top: 3px;
+    width: 160px;
+    height: 28px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskbar-icon {
+    height: 40px;
+    position: relative;
+    left: -5px;
+    bottom: 6px;
+}
+
+.taskbar-name {
+    font-family: 'MS Sans Serif';
+    font-size: 18px;
+    position: relative;
+    left: -10px;
+    bottom: 19px;
+}
+
+.taskbar-button {
+    height: 20px;
+    width: 20px;
+    margin-top: 3px;
+    margin-right: 3px;
+}

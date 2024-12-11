@@ -1,0 +1,139 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: url('../public/icons/MS_cursor.png'),auto
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  height: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  background-color: #0b8080;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.application {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.icon-wrapper {
+  height: 65px;
+}
+
+.icon {
+  height: 100px;
+}
+
+.icon-title {
+  font-family: 'MS Sans Serif';
+  font-size: 15px;
+  color: white;
+  height: 10px;
+}
+
+.input {
+  font-family: 'MS Sans Serif';
+  font-size: 15px;
+}
+
+.bottom {
+  height: 40px;
+  display: flex;
+  z-index: 20;
+  justify-content: space-between;
+
+
+  background-color: #c0c0c0;
+  border-top-style: solid;
+  border-top-color: #f3f3f3;
+  border-top-width: 3px;
+}
+
+.bottom-left {
+  display: flex;
+  gap: 5px;
+}
+
+.bottom-left-left {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  justify-content: space-between;
+
+  width: 85px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 3px;
+
+  background-color: #bcbcbc;
+  border-style: outset;
+  border-top-color: #f3f3f3;
+  border-left-color: #f3f3f3;
+  border-bottom-color: #282828;
+  border-right-color: #282828;
+  border-width: 3px;
+}
+
+.MS-logo {
+  height: 80%;
+  margin-left: 5px;
+}
+
+.start-text {
+  font-family: 'MS Sans Serif Bold';
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.bottom-middle {
+  justify-self: start;
+}
+
+.bottom-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 130px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 3px;
+
+  background-color: #bcbcbc;
+  border-style: inset;
+  border-top-color: #909090;
+  border-left-color: #909090;
+  border-bottom-color: #f3f3f3;
+  border-right-color: #f3f3f3;
+  border-width: 2px;
+}
+
+.clock {
+  font-family: 'MS Sans Serif';
+  font-size: 18px;
+  margin-right: 5px;
+  margin-top: 22px;
+}

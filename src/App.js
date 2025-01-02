@@ -6,17 +6,52 @@ import LinkedList from './LinkedList';
 
 
 function App() {
-  const [taskbar, setTaskbar] = useState([]);
+  // constants and iniitalizations
 
+  // setup for start button 
+  // clears all windows upon click (can be changed)
   const [startPressed, setStartPressed] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  const clickStart = () => {
+    setShowAboutMe(false);
+    setShowContactMe(false);
+    setShowProjects(false);
+    setShowResume(false);
+    setShowHobbies(false);
+    setShowService(false);
+  };
+
+  // setup for background music
   const [isMuted, setIsMuted] = useState(true);
-
   const audioRef = useRef(null);
+  const clickMute = () => {
+    setIsMuted(!isMuted);
+    if (isMuted) {
+      document.getElementById("MS-speaker").src="icons/MS_speaker_loud.png";
+      document.getElementById("MS-speaker").alt="speaker loud";
+      audioRef.current.play();
+      console.log('UNMUTE!');
+    } else {
+      document.getElementById("MS-speaker").src="icons/MS_speaker_quiet.png";
+      document.getElementById("MS-speaker").alt="speaker quiet";
+      audioRef.current.pause();
+      console.log('MUTE!');
+    }
+    
+  };
 
+  // setup for updating clock
   const [currentTime, setCurrentTime] = useState(new Date());
   const formattedTime = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every second
 
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // setup for windows
+  const [taskbar, setTaskbar] = useState([]);
   const zList = useRef(new LinkedList(["About Me", "Contact Me", "Projects", "Resume", "Hobbies", "Service"]));
   const iconMap = {
     "About Me": "icons/MS_computer.png",
@@ -72,6 +107,8 @@ function App() {
     { name: "Service", zIndex: serviceZ, show: showService, pressed: { minimize: serviceMinimizedPressed, fullscreen: serviceFullscreenPressed, close: serviceClosedPressed }}
   ];
 
+  // setup for mouse interactions
+  const [isHovering, setIsHovering] = useState(false);
   const [pressedState, setPressedState] = useState({});
   const handleMouseDown = (app) => {setPressedState((prev) => ({ ...prev, [app]: true }))}
   const handleMouseUp = (app) => {setPressedState((prev) => ({ ...prev, [app]: false }))}
@@ -85,6 +122,8 @@ function App() {
     setIsHovering(false);
   }
 
+  // handles when the user clicks on a window
+  // brings it to the front of the z and reorders the other windows
   const bringToFront = (id) => {
     if (zList.current.head.value === id) return;
     zList.current.erase(id);
@@ -97,88 +136,6 @@ function App() {
     setResumeZ(10-zList.current.find("Resume"));
     setHobbiesZ(10-zList.current.find("Hobbies"));
     setServiceZ(10-zList.current.find("Service"));
-  }
-  const minimize = (id) =>  {
-    if (id === "About Me") {
-      console.log("about minimized");
-      setShowAboutMe(false);
-    } else if (id === "Contact Me") {
-      console.log("contact minimized");
-      setShowContactMe(false);
-    } else if (id === "Projects") {
-      console.log("projects minimized");
-      setShowProjects(false);
-    } else if (id === "Resume") {
-      console.log("resume minimized");
-      setShowResume(false);
-    } else if (id === "Hobbies") {
-      console.log("hobbies minimized");
-      setShowHobbies(false);
-    } else if (id === "Service") {
-      console.log("service minimized");
-      setShowService(false);
-    }
-  }
-  const fullscreen = (id) => {
-    if (id === "About Me") {
-      console.log("about fullscreened");
-    } else if (id === "Contact Me") {
-      console.log("contact fullscreened");
-    } else if (id === "Projects") {
-      console.log("projects fullscreened");
-    } else if (id === "Resume") {
-      console.log("resume fullscreened");
-    } else if (id === "Hobbies") {
-      console.log("hobbies fullscreened");
-    } else if (id === "Service") {
-      console.log("service fullscreened");
-    }
-  }
-  const handleMinimize = (name,val) => {
-    if (name === "About Me") setAboutMinimizedPressed(val);
-    else if (name === "Contact Me") setContactMinimizedPressed(val);
-    else if (name === "Projects") setProjectsMinimizedPressed(val);
-    else if (name === "Resume") setResumeMinimizedPressed(val);
-    else if (name === "Hobbies") setHobbiesMinimizedPressed(val);
-    else if (name === "Service") setServiceMinimizedPressed(val);
-  }
-  const handleFullscreen = (name,val) => {
-    if (name === "About Me") setAboutFullscreenPressed(val);
-    else if (name === "Contact Me") setContactFullscreenPressed(val);
-    else if (name === "Projects") setProjectsFullscreenPressed(val);
-    else if (name === "Resume") setResumeFullscreenPressed(val);
-    else if (name === "Hobbies") setHobbiesFullscreenPressed(val);
-    else if (name === "Service") setServiceFullscreenPressed(val);
-  }
-  const handleClose = (name,val) => {
-    if (name === "About Me") setAboutClosedPressed(val);
-    else if (name === "Contact Me") setContactClosedPressed(val);
-    else if (name === "Projects") setProjectsClosedPressed(val);
-    else if (name === "Resume") setResumeClosedPressed(val);
-    else if (name === "Hobbies") setHobbiesClosedPressed(val);
-    else if (name === "Service") setServiceClosedPressed(val);
-  }
-  const close = (id) => {
-    setTaskbar(taskbar.filter((app) => app !== id));
-    if (id === "About Me") {
-      console.log("about closed");
-      setShowAboutMe(false);
-    } else if (id === "Contact Me") {
-      console.log("contact closed");
-      setShowContactMe(false);
-    } else if (id === "Projects") {
-      console.log("projects closed");
-      setShowProjects(false);
-    } else if (id === "Resume") {
-      console.log("resume closed");
-      setShowResume(false);
-    } else if (id === "Hobbies") {
-      console.log("hobbies closed");
-      setShowHobbies(false);
-    } else if (id === "Service") {
-      console.log("service closed");
-      setShowService(false);
-    }
   }
   const clicked = (id) => {
     bringToFront(id);
@@ -206,38 +163,93 @@ function App() {
     }
   }
 
-  const clickStart = () => {
-    setShowAboutMe(false);
-    setShowContactMe(false);
-    setShowProjects(false);
-    setShowResume(false);
-    setShowHobbies(false);
-    setShowService(false);
-  };
-
-  const clickMute = () => {
-    setIsMuted(!isMuted);
-    if (isMuted) {
-      document.getElementById("MS-speaker").src="icons/MS_speaker_loud.png";
-      document.getElementById("MS-speaker").alt="speaker loud";
-      audioRef.current.play();
-      console.log('UNMUTE!');
-    } else {
-      document.getElementById("MS-speaker").src="icons/MS_speaker_quiet.png";
-      document.getElementById("MS-speaker").alt="speaker quiet";
-      audioRef.current.pause();
-      console.log('MUTE!');
+  // hides the window and leaves it on the task bar
+  const minimize = (id) =>  {
+    if (id === "About Me") {
+      console.log("about minimized");
+      setShowAboutMe(false);
+    } else if (id === "Contact Me") {
+      console.log("contact minimized");
+      setShowContactMe(false);
+    } else if (id === "Projects") {
+      console.log("projects minimized");
+      setShowProjects(false);
+    } else if (id === "Resume") {
+      console.log("resume minimized");
+      setShowResume(false);
+    } else if (id === "Hobbies") {
+      console.log("hobbies minimized");
+      setShowHobbies(false);
+    } else if (id === "Service") {
+      console.log("service minimized");
+      setShowService(false);
     }
-    
-  };
+  }
+  const handleMinimize = (name,val) => {
+    if (name === "About Me") setAboutMinimizedPressed(val);
+    else if (name === "Contact Me") setContactMinimizedPressed(val);
+    else if (name === "Projects") setProjectsMinimizedPressed(val);
+    else if (name === "Resume") setResumeMinimizedPressed(val);
+    else if (name === "Hobbies") setHobbiesMinimizedPressed(val);
+    else if (name === "Service") setServiceMinimizedPressed(val);
+  }
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000); // Update every second
+  // currently unused, potential for fullscreening a window
+  const fullscreen = (id) => {
+    if (id === "About Me") {
+      console.log("about fullscreened");
+    } else if (id === "Contact Me") {
+      console.log("contact fullscreened");
+    } else if (id === "Projects") {
+      console.log("projects fullscreened");
+    } else if (id === "Resume") {
+      console.log("resume fullscreened");
+    } else if (id === "Hobbies") {
+      console.log("hobbies fullscreened");
+    } else if (id === "Service") {
+      console.log("service fullscreened");
+    }
+  }
+  const handleFullscreen = (name,val) => {
+    if (name === "About Me") setAboutFullscreenPressed(val);
+    else if (name === "Contact Me") setContactFullscreenPressed(val);
+    else if (name === "Projects") setProjectsFullscreenPressed(val);
+    else if (name === "Resume") setResumeFullscreenPressed(val);
+    else if (name === "Hobbies") setHobbiesFullscreenPressed(val);
+    else if (name === "Service") setServiceFullscreenPressed(val);
+  }
 
-    return () => clearInterval(intervalId);
-  }, []);
+  // hides the window and removes from task bar
+  const close = (id) => {
+    setTaskbar(taskbar.filter((app) => app !== id));
+    if (id === "About Me") {
+      console.log("about closed");
+      setShowAboutMe(false);
+    } else if (id === "Contact Me") {
+      console.log("contact closed");
+      setShowContactMe(false);
+    } else if (id === "Projects") {
+      console.log("projects closed");
+      setShowProjects(false);
+    } else if (id === "Resume") {
+      console.log("resume closed");
+      setShowResume(false);
+    } else if (id === "Hobbies") {
+      console.log("hobbies closed");
+      setShowHobbies(false);
+    } else if (id === "Service") {
+      console.log("service closed");
+      setShowService(false);
+    }
+  }
+  const handleClose = (name,val) => {
+    if (name === "About Me") setAboutClosedPressed(val);
+    else if (name === "Contact Me") setContactClosedPressed(val);
+    else if (name === "Projects") setProjectsClosedPressed(val);
+    else if (name === "Resume") setResumeClosedPressed(val);
+    else if (name === "Hobbies") setHobbiesClosedPressed(val);
+    else if (name === "Service") setServiceClosedPressed(val);
+  }
 
   return (
     <div className="App">

@@ -6,6 +6,7 @@ import LinkedList from './LinkedList';
 
 // individual windows imports 
 import ContactMe from './windows/ContactMe'
+import Projects from './windows/Projects'
 
 
 function App() {
@@ -107,7 +108,7 @@ function App() {
   const windowsConfig = [
     { name: "About Me", zIndex: aboutZ, show: showAboutMe, pressed: { minimize: aboutMinimizedPressed, fullscreen: aboutFullscreenPressed, close: aboutClosedPressed }},
     { name: "Contact Me", zIndex: contactZ, show: showContactMe, pressed: { minimize: contactMinimizedPressed, fullscreen: contactFullscreenPressed, close: contactClosedPressed }, windowDiv: <ContactMe></ContactMe>},
-    { name: "Projects", zIndex: projectsZ, show: showProjects, pressed: { minimize: projectsMinimizedPressed, fullscreen: projectsFullscreenPressed, close: projectsClosedPressed }},
+    { name: "Projects", zIndex: projectsZ, show: showProjects, pressed: { minimize: projectsMinimizedPressed, fullscreen: projectsFullscreenPressed, close: projectsClosedPressed }, windowDiv: <Projects></Projects>},
     { name: "Resume", zIndex: resumeZ, show: showResume, pressed: { minimize: resumeMinimizedPressed, fullscreen: resumeFullscreenPressed, close: resumeClosedPressed }},
     { name: "Hobbies", zIndex: hobbiesZ, show: showHobbies, pressed: { minimize: hobbiesMinimizedPressed, fullscreen: hobbiesFullscreenPressed, close: hobbiesClosedPressed }},
     { name: "Service", zIndex: serviceZ, show: showService, pressed: { minimize: serviceMinimizedPressed, fullscreen: serviceFullscreenPressed, close: serviceClosedPressed }}

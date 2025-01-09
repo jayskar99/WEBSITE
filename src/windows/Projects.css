@@ -1,0 +1,59 @@
+.background {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.options {
+    height: 40px;
+
+    display: flex;
+    justify-content: flex-start;
+}
+
+.option {
+    font-family: 'MS Sans Serif';
+    color: black;
+    
+    padding-top: 2px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.files {
+    background-color: white;
+    height: 305px;
+    border: inset;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.file {
+    height: 120px;
+    width: 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-icon {
+    height: 100px;
+
+    position: relative;
+    left: 0px;
+    top: -10px;
+}
+
+.project-icon-name {
+    text-decoration: none;
+    font-family: 'MS Sans Serif';
+    color: black;
+
+    position: relative;
+    left: 0px;
+    top: -45px;
+}

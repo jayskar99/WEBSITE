@@ -24,6 +24,13 @@
     bottom: 12px;
 }
 
+.window-contents {
+    height: 100%;
+    width: 100% - 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
 
 .control-icons {
     display: flex;
@@ -56,16 +63,19 @@
 }
 
 .c-window {
-    height: 300px;
+    height: 175px;
     width: 400px;
     background-color: #c1b8bf;
   
     position: fixed;
     left: 38%;
-    bottom: 40%;
+    bottom: 50%;
 
     border: outset;
     border-width: 4px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .p-window {

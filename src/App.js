@@ -4,6 +4,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import LinkedList from './LinkedList';
 
+// individual windows imports 
+import ContactMe from './windows/ContactMe'
+
 
 function App() {
   // constants and iniitalizations
@@ -21,6 +24,7 @@ function App() {
   };
 
   // setup for background music
+  // muted by default
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef(null);
   const clickMute = () => {
@@ -45,12 +49,12 @@ function App() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
-    }, 1000); // Update every second
+    }, 500); // Update every half second
 
     return () => clearInterval(intervalId);
   }, []);
 
-  // setup for windows
+  // setup for icons/ taskbar
   const [taskbar, setTaskbar] = useState([]);
   const zList = useRef(new LinkedList(["About Me", "Contact Me", "Projects", "Resume", "Hobbies", "Service"]));
   const iconMap = {
@@ -61,6 +65,8 @@ function App() {
     "Hobbies": "icons/MS_dice.png",
     "Service": "icons/MS_tree.png"
   };
+
+  // setup for application windows
   const applications = Object.keys(iconMap);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [aboutZ, setAboutZ] = useState(2);
@@ -100,7 +106,7 @@ function App() {
 
   const windowsConfig = [
     { name: "About Me", zIndex: aboutZ, show: showAboutMe, pressed: { minimize: aboutMinimizedPressed, fullscreen: aboutFullscreenPressed, close: aboutClosedPressed }},
-    { name: "Contact Me", zIndex: contactZ, show: showContactMe, pressed: { minimize: contactMinimizedPressed, fullscreen: contactFullscreenPressed, close: contactClosedPressed }},
+    { name: "Contact Me", zIndex: contactZ, show: showContactMe, pressed: { minimize: contactMinimizedPressed, fullscreen: contactFullscreenPressed, close: contactClosedPressed }, windowDiv: <ContactMe></ContactMe>},
     { name: "Projects", zIndex: projectsZ, show: showProjects, pressed: { minimize: projectsMinimizedPressed, fullscreen: projectsFullscreenPressed, close: projectsClosedPressed }},
     { name: "Resume", zIndex: resumeZ, show: showResume, pressed: { minimize: resumeMinimizedPressed, fullscreen: resumeFullscreenPressed, close: resumeClosedPressed }},
     { name: "Hobbies", zIndex: hobbiesZ, show: showHobbies, pressed: { minimize: hobbiesMinimizedPressed, fullscreen: hobbiesFullscreenPressed, close: hobbiesClosedPressed }},
@@ -253,8 +259,7 @@ function App() {
 
   return (
     <div className="App">
-      <audio ref={audioRef} src="Minecraft.mp3">
-      </audio>
+      <audio ref={audioRef} src="Minecraft.mp3"></audio>
       <div className="center">
         <div className="icons">
         {applications.map((app) => (
@@ -271,7 +276,7 @@ function App() {
         ))}
         </div>
         <div className="windows">
-        {windowsConfig.map(({ name, zIndex, show, pressed }) =>
+        {windowsConfig.map(({ name, zIndex, show, pressed, windowDiv}) =>
           show ? (
             <Draggable key={name}>
               <div className={`${name[0].toLowerCase()}-window`} style={{ zIndex }} onClick={() => bringToFront(name)}>
@@ -310,12 +315,12 @@ function App() {
                     </div>
                   </div>
                 </div>
+                <div className="window-contents">{windowDiv}</div>
               </div>
             </Draggable>
           ) : null
         )}
       </div>
-
       </div>
       <div className="bottom">
         <div className="bottom-left">

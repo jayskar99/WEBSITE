@@ -9,7 +9,6 @@
 }
 
 .banner {
-    /* background-color: green; */
     height: 70px;
 
     font-family: 'MS Sans Serif Bold';
@@ -24,7 +23,6 @@
 }
 
 .about-body {
-    /* background-color: aqua; */
     height: 315px;
 
     padding-left: 30px;
@@ -88,7 +86,6 @@
 }
 
 .about-bottom {
-    /* background-color: red; */
     height: 80px;
 
     margin-left: 30px;

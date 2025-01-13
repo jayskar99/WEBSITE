@@ -6,7 +6,6 @@ function AboutMe() {
         <div className="about-background">
             <div className="banner">
                 <div>Hi, I'm Jayden!</div>
-                {/* <img className="banner-art" src="icons/MS_computer.png" alt="Jayden Cox"></img> */}
             </div>
             <div className="about-body">
                 <div className="tips">implement a carousel here with things about me: education, family, etc</div>

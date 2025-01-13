@@ -1,0 +1,134 @@
+.about-background {
+    background-color: #b6b0b6;
+    height: 455px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.banner {
+    height: 70px;
+
+    font-family: 'MS Sans Serif Bold';
+    font-size: 30px;
+    color: black;
+
+    margin-left: 35px;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.about-body {
+    height: 315px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tips {
+    background-color: rgb(255, 255, 209);
+    height: 90%;
+    width: 72.5%;
+
+    border: inset;
+    border-width: 2px;
+}
+
+.about-body-right {
+    height: 90%;
+    width: 22.5%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.about-buttons {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.about-button {
+    background-color: #b6b0b6;
+    height: 40px;
+    width: 185px;
+
+    font-family: 'MS Sans Serif';
+    font-size: 18px;
+    color: black;
+
+    margin-bottom: 10px;
+    border: outset;
+    border-width: 2px;
+    border-right-color: #282828;
+    border-bottom-color: #282828;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-bar {
+    height: 1px;
+    border: inset;
+}
+
+.about-bottom {
+    height: 80px;
+
+    margin-left: 30px;
+    margin-right: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-bottom-left {
+    font-family: 'MS Sans Serif';
+    font-size: 18px;
+    color: black;
+
+    display: flex;
+    align-items: center;
+}
+
+.about-checkbox {
+    margin-right: 10px;
+}
+
+.about-start-icon {
+    height: 25px;
+}
+
+.about-close-button {
+    background-color: #b6b0b6;
+    height: 40px;
+    width: 185px;
+
+    font-family: 'MS Sans Serif';
+    font-size: 18px;
+    color: black;
+
+    margin-bottom: 10px;
+    border: outset;
+    border-width: 2px;
+    border-right-color: #282828;
+    border-bottom-color: #282828;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

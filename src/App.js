@@ -5,6 +5,7 @@ import Draggable from 'react-draggable';
 import LinkedList from './LinkedList';
 
 // individual windows imports 
+import AboutMe from './windows/AboutMe'
 import ContactMe from './windows/ContactMe'
 import Projects from './windows/Projects'
 
@@ -106,7 +107,7 @@ function App() {
   const [serviceClosedPressed, setServiceClosedPressed] = useState(false);
 
   const windowsConfig = [
-    { name: "About Me", zIndex: aboutZ, show: showAboutMe, pressed: { minimize: aboutMinimizedPressed, fullscreen: aboutFullscreenPressed, close: aboutClosedPressed }},
+    { name: "About Me", zIndex: aboutZ, show: showAboutMe, pressed: { minimize: aboutMinimizedPressed, fullscreen: aboutFullscreenPressed, close: aboutClosedPressed }, windowDiv: <AboutMe></AboutMe>},
     { name: "Contact Me", zIndex: contactZ, show: showContactMe, pressed: { minimize: contactMinimizedPressed, fullscreen: contactFullscreenPressed, close: contactClosedPressed }, windowDiv: <ContactMe></ContactMe>},
     { name: "Projects", zIndex: projectsZ, show: showProjects, pressed: { minimize: projectsMinimizedPressed, fullscreen: projectsFullscreenPressed, close: projectsClosedPressed }, windowDiv: <Projects></Projects>},
     { name: "Resume", zIndex: resumeZ, show: showResume, pressed: { minimize: resumeMinimizedPressed, fullscreen: resumeFullscreenPressed, close: resumeClosedPressed }},

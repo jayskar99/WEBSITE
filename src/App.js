@@ -282,10 +282,11 @@ function App() {
           show ? (
             <Draggable key={name}>
               <div className={`${name[0].toLowerCase()}-window`} style={{ zIndex }} onClick={() => bringToFront(name)}>
-                <div className="window-header">
+                <div className="window-header"
+                style={{backgroundColor: zIndex === 10 ? "#0300A8": "#7f797f"}}>
                   <div>
                     <img className="window-header-icon" src={iconMap[name]} alt="icon"></img>
-                    <span className="window-header-name">{name}</span>
+                    <span className="window-header-name" style={{color: zIndex === 10 ? "#ffffff": "#b6b0b6"}}>{name}</span>
                   </div>
                   <div className="control-icons">
                     <div className="control-button" onClick={() => minimize(name)}
@@ -331,7 +332,7 @@ function App() {
             onClick={clickStart} onMouseDown={() => setStartPressed(true)} onMouseUp={() => setStartPressed(false)} 
             style={
               { cursor: isHovering ? "url('/icons/MS_pointer.png'),auto" : "url('/icons/MS_cursor.png'),auto",
-                
+
                 borderStyle: startPressed ? "inset": "outset",
                 borderTopColor: startPressed ? "#282828": "#f3f3f3",
                 borderLeftColor: startPressed ? "#282828": "#f3f3f3",

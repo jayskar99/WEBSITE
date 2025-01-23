@@ -62,10 +62,7 @@ function App() {
   const iconMap = {
     "About Me": "icons/MS_computer.png",
     "Contact Me": "icons/MS_phone.png",
-    "Projects": "icons/MS_folder.png",
-    "Resume": "icons/MS_newspaper.png",
-    "Hobbies": "icons/MS_dice.png",
-    "Service": "icons/MS_tree.png"
+    "Projects": "icons/MS_folder.png"
   };
 
   // setup for application windows

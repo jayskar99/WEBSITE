@@ -3,11 +3,12 @@ import './Projects.css';
 
 function Projects() {
     const fileMap = [
+        {name: "Project Database", icon: "icons/MS_newspaper.png", link: "https://github.com/jayskar99/Project-Management-Database"},
+        {name: "Store Database", icon: "icons/MS_newspaper.png", link: "https://github.com/jayskar99?tab=repositories"},
         {name: "Dungeon Crawler", icon: "icons/MS_dice.png", link: "https://github.com/jayskar99/dungeon-crawler"},
         {name: "Logic Gate CPU", icon: "icons/MS_computer.png", link: "https://github.com/jayskar99/CPU"},
         {name: "Pokemon Go", icon: "icons/MS_dice.png", link: "https://github.com/jayskar99/pokemon-go"},
-        {name: "Java Testing", icon: "icons/MS_tree.png", link: "https://github.com/jayskar99/JavaTesting"},
-        {name: "Discord Bot", icon: "icons/MS_phone.png", link: "https://github.com/jayskar99/event-bot"}
+        {name: "Java Testing", icon: "icons/MS_tree.png", link: "https://github.com/jayskar99/JavaTesting"}
     ]
 
     return (

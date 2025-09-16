@@ -12,9 +12,9 @@ function AboutMe() {
     // setup for tip slides
     const [tipNumber, setTipNumber] = useState(0);
     const tips = [
-    <div>I am a senior Computer Science student at Texas A&M University. I will also have minors in Mathematics and Statistics.</div>,
-    <div>I work as a Peer Teacher in the Computer Science Department at A&M.</div>,
-    <div>I have a lovely fianceé named Addison who I am marrying this June!</div>,
+    <div>I am a Masters of Computer Science student at Texas A&M University. I completed my undergraduate degree in Computer Science with minors in Mathematics and Statistics.</div>,
+    <div>I work as a Teaching Assistant in the Computer Science Department at A&M.</div>,
+    <div>I have a lovely wife named Addison who I am married this June!</div>,
     <div>Addison and I have a cat named Suki. She is only one year old and very cute.</div>,
     <div>My hobbies include hosting gamenights, snowboarding, going to the gym, and cooking.</div>,
     <div>Every year since I was born, I volunteer at the MS150 bike ride to help raise money for Multiple Sclerosis research.</div>]

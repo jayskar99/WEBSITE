@@ -14,6 +14,7 @@ function ContactMe() {
                 <div className="note">Phone: (713) 825-2439</div>
                 <div className="note">Email: jayden@apprhythmia.com</div>
                 <a href="http://linkedin.com/in/JaydenDavisCox" className="note">LinkedIn: linkedin.com/in/JaydenDavisCox</a>
+                <a href="https://github.com/jayskar99" className="note">GitHub: github.com/jayskar99</a>
             </div>
         </div>
     );
